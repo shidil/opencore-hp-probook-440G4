@@ -1,6 +1,6 @@
 # HP Probook 440 G4 Hackintosh (OpenCore)
 
-OpenCore bootloader config files for my kaby lake laptop.
+OpenCore bootloader configuration EFI for my kaby lake laptop.
 
 ## System Information
 
@@ -13,7 +13,7 @@ OpenCore bootloader config files for my kaby lake laptop.
 | Ethernet |              Realtek Gbe |
 
 - OpenCore: v0.6.5
-- MacOS: v11.1 BigSur
+- MacOS: v11.2 BigSur
 - OpenCanopy theme: <https://github.com/tekteq/opencanopy-minimal-theme>
 
 ## Guide
@@ -30,30 +30,29 @@ Go to <https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/kab
 
 ## Kexts Used
 
-| Package                | Version |
-| :--------------------- | ------: |
-| AppleALC               |      xx |
-| Lilu                   |      xx |
-| WhateverGreen          |      xx |
-| VirtualSMC             |      xx |
-| SMCProcessor           |      xx |
-| SMCSuperIO             |      xx |
-| SMCBatteryManager      |      xx |
-| SMCBatteryManager      |      xx |
-| CPUFriendDataProvider  |     xxx |
-| RealtekRTL8111         |     xxx |
-| USBInjectAll           |     xxx |
-| VoodooPS2Controller    |     xxx |
-| VoodooRMI              |     xxx |
-| VoodooSMBUS            |     xxx |
-| IntelBluetoothFirmware |     xxx |
-| AirportItlwm           |     xxx |
+| Package                |   Version |
+| :--------------------- | --------: |
+| AppleALC               |     1.5.6 |
+| Lilu                   |     1.5.0 |
+| WhateverGreen          |     1.4.6 |
+| VirtualSMC             |     1.1.9 |
+| SMCProcessor           |     1.1.9 |
+| SMCSuperIO             |     1.1.9 |
+| SMCBatteryManager      |     1.1.9 |
+| CPUFriendDataProvider  |         _ |
+| RealtekRTL8111         |     2.3.0 |
+| USBInjectAll           | 2018-1108 |
+| VoodooPS2Controller    |     2.2.0 |
+| VoodooRMI              |       2.2 |
+| VoodooSMBUS            |       2.2 |
+| IntelBluetoothFirmware |     1.1.2 |
+| AirportItlwm           |     1.2.0 |
 
 What works: WiFi, BT, Ethernet, Fn keys, Brightness, KB Backlight, Sound, Touchpad Gestures etc
 
 ## What's not working
 
-- Battery readouts (gonna fix this soon)
+- Battery readout (gonna fix this soon)
 
 ## Pre Install
 
@@ -64,4 +63,13 @@ What works: WiFi, BT, Ethernet, Fn keys, Brightness, KB Backlight, Sound, Touchp
 - Change OpenCore to release version
 - Upgrade OpenCore versions
 - Check power management
+
+If tap to click is not working on touchpad run the following commands and reboot
+
+```bash
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+```
   
