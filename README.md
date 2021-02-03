@@ -73,3 +73,6 @@ sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int
 sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 ```
   
+## Disclaimer
+
+This is intended for educational purpose only. I do not sell or recommend hackintosh
